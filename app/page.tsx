@@ -44,7 +44,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen w-full overflow-x-hidden">
+    <div className="flex min-h-screen w-full">
       {/* Left panel - branding */}
       <div className="hidden flex-1 flex-col justify-between bg-sidebar p-10 lg:flex">
         <div className="flex items-center gap-2.5">
