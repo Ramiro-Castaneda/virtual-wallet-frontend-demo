@@ -20,16 +20,14 @@ export default function LoginPage() {
 
   function validate() {
     const newErrors: { email?: string; password?: string } = {};
-    if (!email) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       newErrors.email = "Enter a valid email address";
-    }
-    if (!password) {
-      newErrors.password = "Password is required";
-    } else if (password.length < 6) {
+
+    if (!password) newErrors.password = "Password is required";
+    else if (password.length < 6)
       newErrors.password = "Password must be at least 6 characters";
-    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -44,8 +42,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-6xl space-y-8 px-4 sm:px-6 lg:px-8">
-      {/* Left panel - branding */}
+    <div className="flex min-h-screen w-full overflow-x-hidden">
+      {/* Left panel - visible only on lg+ */}
       <div className="hidden flex-1 flex-col justify-between bg-sidebar p-10 lg:flex">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sidebar-primary">
@@ -57,12 +55,11 @@ export default function LoginPage() {
         </div>
 
         <div className="max-w-md">
-          <h1 className="text-3xl font-semibold leading-tight text-sidebar-foreground text-balance">
+          <h1 className="text-3xl font-semibold leading-tight text-sidebar-foreground">
             Manage your money with confidence and clarity.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-sidebar-foreground/60">
             Send, receive, and track every transaction in one secure place.
-            Built for teams and individuals who demand reliability.
           </p>
         </div>
 
@@ -71,7 +68,7 @@ export default function LoginPage() {
         </p>
       </div>
 
-      {/* Right panel - form */}
+      {/* Right panel */}
       <div className="flex flex-1 items-center justify-center bg-card px-6 py-12">
         <div className="w-full max-w-sm">
           {/* Mobile logo */}
@@ -94,6 +91,7 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {/* Email */}
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="email"
@@ -123,6 +121,7 @@ export default function LoginPage() {
               )}
             </div>
 
+            {/* Password */}
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
                 <label
@@ -138,6 +137,7 @@ export default function LoginPage() {
                   Forgot password?
                 </button>
               </div>
+
               <div className="relative">
                 <Input
                   id="password"
@@ -156,6 +156,7 @@ export default function LoginPage() {
                   }
                   autoComplete="current-password"
                 />
+
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -166,11 +167,9 @@ export default function LoginPage() {
                   ) : (
                     <Eye className="h-4 w-4" />
                   )}
-                  <span className="sr-only">
-                    {showPassword ? "Hide password" : "Show password"}
-                  </span>
                 </button>
               </div>
+
               {errors.password && (
                 <p className="text-xs text-destructive">{errors.password}</p>
               )}
@@ -193,7 +192,7 @@ export default function LoginPage() {
           </form>
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            {"Don't have an account? "}
+            Don't have an account?{" "}
             <Link
               href="/register"
               className="font-medium text-primary hover:underline"
