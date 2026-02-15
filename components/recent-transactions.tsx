@@ -34,7 +34,8 @@ export function RecentTransactions() {
               key={txn.id}
               href={`/dashboard/transactions/${txn.id}`}
               className={cn(
-                "flex items-center gap-4 py-3.5 transition-colors hover:bg-muted/50 -mx-3 px-3 rounded-md",
+                // Avoid negative margins on mobile (can create horizontal overflow that gets clipped)
+                "flex items-center gap-4 rounded-md px-3 py-3.5 transition-colors hover:bg-muted/50",
                 idx < recentTxns.length - 1 && "border-b border-border"
               )}
             >

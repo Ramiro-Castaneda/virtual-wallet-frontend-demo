@@ -13,15 +13,15 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3">
         {/* Left column */}
-        <div className="flex flex-col gap-6 lg:col-span-2">
+        <div className="flex flex-col gap-6 lg:col-span-2 min-w-0">
           <BalanceCard />
           <RecentTransactions />
         </div>
 
         {/* Right column */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 min-w-0">
           <QuickActions />
           <SavingsOverview />
 

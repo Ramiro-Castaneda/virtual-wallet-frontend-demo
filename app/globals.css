@@ -51,9 +51,20 @@
 }
 
 @layer base {
-  * {
+  /* 🔴 CRÍTICO */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
     @apply border-border;
   }
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

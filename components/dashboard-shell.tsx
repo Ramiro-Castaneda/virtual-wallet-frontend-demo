@@ -45,7 +45,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-background overflow-x-hidden">
+    <div className="flex min-h-screen w-full overflow-x-hidden bg-background">
       {/* Desktop Sidebar */}
       <aside className="hidden w-64 shrink-0 flex-col border-r border-sidebar-border bg-sidebar lg:flex">
         <div className="flex h-16 items-center gap-2.5 border-b border-sidebar-border px-6">
@@ -175,8 +175,8 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         )}
 
         {/* Page Content */}
-        <main className="flex-1 overflow-x-hidden">
-          <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+        <main className="flex-1 min-w-0 overflow-x-hidden">
+          <div className="w-full py-6 px-4 sm:px-6 lg:px-8 lg:max-w-6xl lg:mx-auto box-border">
             {children}
           </div>
         </main>
